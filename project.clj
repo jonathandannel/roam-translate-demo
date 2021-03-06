@@ -11,7 +11,7 @@
                  [ring/ring-defaults "0.3.2"]]
   :plugins [[lein-ring "0.12.5"]
             [lein-environ "1.2.0"]]
-  :ring {:handler translate-roam.handler/app}
+  :ring {:handler roam-translate.handler/app}
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
                         [ring/ring-mock "0.3.2"]]}})

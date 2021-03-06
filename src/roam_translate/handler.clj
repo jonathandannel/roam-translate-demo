@@ -1,4 +1,4 @@
-(ns translate-roam.handler
+(ns roam-translate.handler
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
             [clj-http.client :as client]
