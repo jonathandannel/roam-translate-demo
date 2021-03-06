@@ -8,6 +8,7 @@
                  [environ "1.2.0"]
                  [org.clojure/data.json "1.0.0"]
                  [ring/ring-json "0.5.0"]
+                 [ring-cors "0.1.13"]
                  [ring/ring-defaults "0.3.2"]]
   :plugins [[lein-ring "0.12.5"]
             [lein-environ "1.2.0"]]

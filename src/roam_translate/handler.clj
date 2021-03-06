@@ -6,6 +6,7 @@
             [clojure.walk :as walk]
             [clojure.data.json :as json]
             [ring.util.response :refer [response]]
+            [ring.middleware.cors :refer [wrap-cors]]
             [ring.middleware.json :refer [wrap-json-body wrap-json-response]]))
 
 (def apikey (env :apikey))
@@ -22,11 +23,10 @@
                                         :model_id lang})})]
       ; Success
       {:success true
-       :result (->
-                (json/read-str (resp :body) :key-fn keyword)
-                :translations
-                first
-                :translation)})
+       :result (-> (json/read-str (resp :body) :key-fn keyword)
+                   :translations
+                   first
+                   :translation)})
     ; Error
     (catch Exception e
       {:success false
@@ -38,9 +38,11 @@
      (translate (walk/keywordize-keys body))))
   (route/not-found nil))
 
-; Wrap app routes in middleware
+; Wrap middleware
 (def app
-  (->
-   app-routes
-   wrap-json-response
-   wrap-json-body))
+  (-> app-routes
+      wrap-json-response
+      wrap-json-body
+      (wrap-cors
+       :access-control-allow-origin [#"https://roamresearch.com/"]
+       :access-control-allow-methods [:post])))
