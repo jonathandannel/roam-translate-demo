@@ -1,6 +1,6 @@
 # roam-translate
 
-FIXME
+A tiny API for routing requests to IBM Watson's translation tool(s)
 
 ## Prerequisites
 
@@ -16,4 +16,4 @@ To start a web server for the application, run:
 
 ## License
 
-Copyright © 2021 FIXME
+Copyright © 2021 

@@ -1,5 +1,5 @@
 (defproject roam-translate "0.1.0-SNAPSHOT"
-  :description "Roam translate API"
+  :description "Roam Translate demo API"
   :url ""
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.10.0"]
