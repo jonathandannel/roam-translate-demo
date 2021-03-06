@@ -44,5 +44,5 @@
       wrap-json-response
       wrap-json-body
       (wrap-cors
-       :access-control-allow-origin [#"https://roamresearch.com/"]
+       :access-control-allow-origin [#".*"]
        :access-control-allow-methods [:post])))
