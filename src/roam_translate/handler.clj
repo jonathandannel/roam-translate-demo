@@ -6,8 +6,7 @@
             [clojure.walk :as walk]
             [clojure.data.json :as json]
             [ring.util.response :refer [response]]
-            [ring.middleware.json :refer [wrap-json-body wrap-json-response]]
-            [ring.middleware.defaults :refer [wrap-defaults api-defaults]]))
+            [ring.middleware.json :refer [wrap-json-body wrap-json-response]]))
 
 (def apikey (env :apikey))
 (def watson (env :watson))
@@ -43,6 +42,5 @@
 (def app
   (->
    app-routes
-   (wrap-defaults api-defaults)
    wrap-json-response
    wrap-json-body))
